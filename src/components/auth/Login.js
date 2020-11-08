@@ -1,6 +1,7 @@
 import {React, Fragment, useState} from 'react';
 import { Link } from 'react-router-dom';
-import '../../css/Login.css'
+import '../../css/Global.css';
+import Titulo from '../layout/Titulo';
 
 import { Button,Form,Col,Row,Container, Card} from 'react-bootstrap';
 
@@ -8,6 +9,8 @@ import { Button,Form,Col,Row,Container, Card} from 'react-bootstrap';
 
 const Login = (props) => {
 
+
+    
      //agregar state de login
      const [Login, cambiarStateLogin] = useState({
          username: '',
@@ -28,7 +31,7 @@ const Login = (props) => {
         //estado para cambiar color mensaje
         const [claseError, estadoClaseMensaje] = useState('');
 
-        //obtener valoresd actuales de input distrotion
+        //obtener valores actuales de state con distrotion
         const {username,password} = Login;
 
         //validar Credenciales 
@@ -56,19 +59,26 @@ const Login = (props) => {
     return ( 
        
         <Fragment>
+            <Container><br/>
+                <Row>
+                
             <Col xs={12} sm={8} md={4}>
                 
-            </Col><br/><br/>
-            <Col xs={12} sm={8} md={4} ><br/><br/>
-                 <h2>Login de Ingreeso</h2>
+            </Col>
+            <Col xs={12} sm={8} md={4} >
+               
                 <Card style={{ width: '100%', padding:'1em' }}>
                     <Form onSubmit={submitLogin} >
+                    <Titulo
+                        className="text-center"
+                        titulo='Login Acceso Pymep'
+                        />
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Ingrese Email</Form.Label>
+                            <Form.Label>Username</Form.Label>
                                 <Form.Control 
                                     type="text"
                                     name="username"
-                                    placeholder="Ingrese Username"
+                                    placeholder="Ingrese Username.."
                                     onChange={actualizarState}
                                     value={username}
 
@@ -76,11 +86,11 @@ const Login = (props) => {
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label> Ingrese Password</Form.Label>
+                            <Form.Label>Password</Form.Label>
                             <Form.Control 
                                     type="password"
                                     name="password"
-                                    placeholder="Ingrese password"
+                                    placeholder="Ingrese password.."
                                     onChange={actualizarState}
                                     value={password}
                             />
@@ -90,19 +100,20 @@ const Login = (props) => {
                             type="submit"
                             className="btn btn-block ">
                             Ingresar
-                            
                         </Button>
 
-                        </Form>
+                        </Form><br/>
                         <div>
                              <h5 className={claseError}>{mensajeError}</h5>
                          </div>
                     </Card>
                     <Link to={'/RecuperarPassword'}>Recuperar Password</Link><br/>
-                    <Link to={'/NuevaCuenta'}>Obtener Cuenta</Link><br/>
+                    <Link to={'/RegistroUsuario'}>Obtener Cuenta Pymep</Link><br/>
                     <Link to={'/Inicio'}>ir a Inicio link solo Prueba</Link>
             </Col>
-            <Col xs={12} sm={8} md={4}>Fila tres</Col>
+            <Col xs={12} sm={8} md={4}></Col>
+            </Row>
+            </Container>
         </Fragment>
                
     );

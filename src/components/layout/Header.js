@@ -16,7 +16,6 @@ const Herder = (props) => {
                     <Nav className="mr-auto">
                     <Nav.Link href="#home">Inicio</Nav.Link>
                     <Nav.Link href="#link">Mi Cuenta</Nav.Link>
-                    <Nav.Link href="#link">Cerrar Session</Nav.Link>
                     <NavDropdown title="Menu" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Cotizar Producto</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Historial de ventas </NavDropdown.Item>
@@ -27,7 +26,8 @@ const Herder = (props) => {
                     </Nav>
                     <Form inline>
                     <FormControl type="text" placeholder="" className="mr-sm-2" />
-                    <Button variant="outline-success">Buscar Producto</Button>
+                    <Button style={{ margin: '10px' }} variant="outline-success">Buscar Producto</Button>
+                    <Button variant="outline-danger">Cerrar Session</Button>
                     </Form>
                 </Navbar.Collapse>
                 </Navbar>
