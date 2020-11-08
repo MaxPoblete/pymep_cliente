@@ -109,7 +109,6 @@ const Login = (props) => {
                     </Card>
                     <Link to={'/RecuperarPassword'}>Recuperar Password</Link><br/>
                     <Link to={'/RegistroUsuario'}>Obtener Cuenta Pymep</Link><br/>
-                    <Link to={'/Inicio'}>ir a Inicio link solo Prueba</Link>
             </Col>
             <Col xs={12} sm={8} md={4}></Col>
             </Row>

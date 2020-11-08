@@ -1,5 +1,4 @@
 import React,{Fragment, useState} from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import '../../css/Global.css';
 import { Button, Form, Col, Row, Container, Card} from 'react-bootstrap';
 import Titulo from '../layout/Titulo';
@@ -139,7 +138,7 @@ const RegistroPyme = (props) => {
                                 <Form onSubmit={sutmitRegistroUsuario}>
                                 <Titulo
                                     className="text-center"
-                                    titulo='Reguistro Datos Personales Usuario'
+                                    titulo='Reguistro Datos pyme '
                                     />
                                     <br/>
                                     <Form.Row>
