@@ -1,6 +1,6 @@
 import React,{Fragment, useState,useEffect} from 'react';
 import '../../css/Global.css';
-import { Button,Form,Col,Row,Container, Card} from 'react-bootstrap';
+import { Button, Form, Col, Row, Container, Card} from 'react-bootstrap';
 import uuid from 'react-uuid';
 import RegistroContacto from './RegistroContacto';
 import Titulo from '../layout/Titulo';
@@ -67,7 +67,6 @@ const RegistroUsuario = (props) => {
 
      
     useEffect( () => {
-        
       if(UsuariosIniciales) {
         localStorage.setItem('usuarios', JSON.stringify(usuarios))
       } else {
@@ -78,10 +77,11 @@ const RegistroUsuario = (props) => {
      
     //agregar usuario
     const crearUsuario = usuario => {
-            guardarUsuarios([ ...usuarios, usuario ]);
+            guardarUsuarios([ 
+                ...usuarios,
+                 usuario ]);
         }
 
-         console.log(usuarios);
     //validar Datos Formilario
     const sutmitRegistroUsuario = (e) =>{
 
@@ -133,13 +133,10 @@ const RegistroUsuario = (props) => {
         <Fragment>
             <Container fluid><br/>
                 <Row>
-                    <Col xs={12} sm={3} md={3}>                        
-                    </Col>
+                    <Col xs={12} sm={3} md={3}></Col>
                     <Col xs={12} sm={6} md={6} >
-                    {Siguiente? < RegistroContacto/> :
-                    
-                    <Card style={{ width: '100%', padding:'1em' }}>
-                    
+                    {Siguiente? < RegistroContacto/> :                   
+                    <Card style={{ width: '100%', padding:'1em' }}>                   
                         <Form onSubmit={sutmitRegistroUsuario}>
                             <Titulo
                                 className="text-center"
@@ -228,18 +225,16 @@ const RegistroUsuario = (props) => {
 
                         </Form>
                         <div>
-                             <h5 className={claseError}>{mensajeError}</h5>
+                            <h5 className={claseError}>{mensajeError}</h5>
                          </div>
-                        </Card>  }
-                    
+                        </Card> 
+                    }               
                     </Col>
-
                     <Col xs={12} sm={3} md={3}></Col>
                 </Row>
             </Container>
-        </Fragment>
-               
+        </Fragment>             
     );
 }
-
 export default RegistroUsuario;
+

@@ -218,7 +218,7 @@ const RegistroPyme = (props) => {
                                     </Form.Row>
                                     <Form.Row>
                                         <Col>
-                                            <Form.Label>Domicilio Empresa </Form.Label>
+                                            <Form.Label>Domicilio  Casa Matriz </Form.Label>
                                             <Form.Control 
                                             size="sm" 
                                             type="text" 

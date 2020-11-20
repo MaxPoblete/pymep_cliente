@@ -5,6 +5,8 @@ import RecuperarPassword from './components/auth/RecuperarPassword';
 import RegistroUsuario from './components/auth/RegistroUsuario';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from './components/inicio/Inicio';
+import AgregarProducto from './components/Producto/AgregarProducto';
+import Categoria from './components/Producto/Categoria';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
               <Route exact path="/RegistroUsuario" component={RegistroUsuario} /> 
               <Route exact path="/Inicio" component={Inicio}/>
               <Route exact path="/RecuperarPassword" component={RecuperarPassword}/>
+              <Route exact path="/AgregarProducto" component={AgregarProducto}/>
+              <Route exact path="/Categoria" component={Categoria}/>
            </Switch>
         </Router> 
    </>
