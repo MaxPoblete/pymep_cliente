@@ -74,7 +74,17 @@ const Categoria = ({titulo}) =>{
                     categoria
              ]);
     }
-        
+      // Función que elimina una categoria por su id
+  const eliminarCategoria = id => {
+    const nuevasCategorias = categorias.filter(categoria => categoria.id !== id );
+    guardarCategoria(nuevasCategorias);
+ }
+
+     
+
+
+
+
     //enviando onsubmit
     const SubmitRegistroCategoria = (e) =>{
 
@@ -163,14 +173,13 @@ const Categoria = ({titulo}) =>{
                         <h5 className={claseError}>{mensajeError}</h5>
                      </div>
                     </Card> 
-                 
+                }  
                 </Col>
               
                 <Col xs={12} sm={6} md={6}>
                     <Table striped bordered hover variant="">
                             <thead>
                                 <tr>
-                                    <th>id Categoria</th>
                                     <th>Nombre Categoria</th>
                                     <th>Descripcion</th>
                                     <th>Eliminar</th>
@@ -181,12 +190,13 @@ const Categoria = ({titulo}) =>{
                             {categorias.map(categoria => (
                                 <tbody>
                                 <tr>
-                                    <td>{categoria.id}</td>
                                     <td>{categoria.nombreCategoria}</td>
                                     <td>{categoria.descripcion}</td>
                                     <td>
                                     <Button
-                                        className="btn btn-block bg-danger">
+                                        className="btn btn-block bg-danger"
+                                        onClick={ () => eliminarCategoria(categoria.id)  }
+                                        >
                                         Eliminar
                                     </Button>
                                     </td>
@@ -201,13 +211,10 @@ const Categoria = ({titulo}) =>{
                             ))}
                     </Table>
                 </Col>
-                } 
             </Row>
         </Container>
     </Fragment>             
-
     )
-
 }
 
 export default Categoria;
