@@ -6,7 +6,7 @@ import RegistroUsuario from './components/auth/RegistroUsuario';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from './components/inicio/Inicio';
 import AgregarProducto from './components/Producto/AgregarProducto';
-import Categoria from './components/Producto/Categoria';
+import Categoria from './components/categoria/Categoria';
 
 
 function App() {

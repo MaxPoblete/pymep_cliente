@@ -1,5 +1,4 @@
 import React,{Fragment, useState,useEffect} from 'react';
-import '../../css/Global.css';
 import { Button, Form, Col, Row, Container, Card} from 'react-bootstrap';
 import uuid from 'react-uuid';
 import RegistroContacto from './RegistroContacto';
@@ -26,7 +25,6 @@ const RegistroUsuario = (props) => {
 
     //actualizar state Registro Usuario
     const actualizarState = (e) => {
-
         CambiarStateUsuario({
             ...RegistroUsuario,
             [e.target.name]: e.target.value
