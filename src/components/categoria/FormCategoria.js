@@ -3,7 +3,7 @@ import {Form, Button, Col} from 'react-bootstrap';
 import '../../css/Global.css';
 
 
-const FormCategoria = ({titulo, Categoria, actualizarState, sutmitCategoria,claseError,mensajeError, Restablecer }) =>{
+const FormCategoria = ({titulo, Categoria, actualizarState, sutmitCategoria,claseError,mensajeError, Restablecer, botonActualizar, editar }) =>{
 
     return(
         <Fragment>
@@ -44,12 +44,22 @@ const FormCategoria = ({titulo, Categoria, actualizarState, sutmitCategoria,clas
                         <br/>
                         <Form.Row>
                             <Col>
-                                <Button
+                            {botonActualizar?  
+                                  <Button
                                     className="btn btn-block bg-primary "
                                     type='submit'
                                     >
                                     Agregar
-                                </Button>
+                                </Button> 
+                                 : 
+                                 <Button
+                                 className="btn btn-block bg-primary "
+                                 onClick={ () => editar(Categoria)  }
+                                 >
+                                 Actualizar
+                             </Button>
+                                 }
+
                             </Col>
                             <Col>
                                 <Button

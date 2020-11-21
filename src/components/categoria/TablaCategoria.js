@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react';
 import { Table, Button} from 'react-bootstrap';
 
-const TablaCategoria = ({titulo, eliminarCategoria, categorias}) =>{
+const TablaCategoria = ({titulo, eliminarCategoria, categorias, agregarDatosAinput}) =>{
 
     return(
  
@@ -33,6 +33,7 @@ const TablaCategoria = ({titulo, eliminarCategoria, categorias}) =>{
                             <td>
                                 <Button
                                     className="btn btn-block bg-success"
+                                    onClick={ () => agregarDatosAinput(categoria)}
                                 >
                                     Actializar
                                 </Button>

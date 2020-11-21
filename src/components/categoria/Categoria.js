@@ -76,6 +76,34 @@ const Categoria = () =>{
         guardarCategoria(nuevasCategorias);
     }
 
+    //state booton actualizar
+    const[botonActualizar, cambiarBoton]= useState(true);
+
+    const agregarDatosAinput = (categoria) =>{
+         setCategoria({
+            id:categoria.id,
+            nombre:categoria.nombre,
+            descripcion:categoria.descripcion
+        })
+        cambiarBoton(false);
+    }
+
+    //const editar
+    const editar = (Categoria) =>{
+        const nuevasCategotias = categorias;
+        nuevasCategotias.map(categoria =>{
+
+            if(categoria.id === Categoria.id){
+                categoria.nombre = Categoria.nombre;
+                categoria.descripcion = Categoria.descripcion;
+            } 
+        })
+        guardarCategoria(nuevasCategotias);
+        cambiarBoton(true);
+        Restablecer();
+    }
+
+
     //Evento Submit
     const sutmitCategoria = (e) =>{
 
@@ -112,13 +140,15 @@ const Categoria = () =>{
                     <Col sm={4}>
                         <FormCategoria
                             titulo = 'Agregar Categoria'
+                            className='Form'
                             actualizarState={actualizarState}
                             Categoria={Categoria}
                             sutmitCategoria={sutmitCategoria}
                             mensajeError={mensajeError}
                             claseError={claseError}
                             Restablecer={Restablecer}
-                            className='Form'
+                            botonActualizar={botonActualizar}
+                            editar={editar}
                         >
                         </FormCategoria>
                     </Col>  
@@ -127,6 +157,7 @@ const Categoria = () =>{
                             titulo = 'Lista Categorias'
                             eliminarCategoria={eliminarCategoria}
                             categorias={categorias}
+                            agregarDatosAinput={agregarDatosAinput}
 
                         ></TablaCategoria>
                     </Col>
