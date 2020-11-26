@@ -19,7 +19,9 @@ const RegistroUsuario = (props) => {
         segundoNombre:'',
         apellidoMaterno: '',
         apellidoPaterno:'',
-        run:''
+        run:'',
+        username:'',
+        password:''
 
     })
 
@@ -32,7 +34,7 @@ const RegistroUsuario = (props) => {
     }
 
     //extraer datos state distrotion
-    const { nombre,segundoNombre,apellidoMaterno,apellidoPaterno, run } = RegistroUsuario;
+    const { nombre,segundoNombre,apellidoMaterno,apellidoPaterno, run,username, password } = RegistroUsuario;
 
     //estado para cambiar mensaje de error
      const [mensajeError, estadoMensaje] = useState('');
@@ -115,11 +117,26 @@ const RegistroUsuario = (props) => {
                             e.target[4].focus();
                             return;
                         }else{
-                            
-                            //estado para pasar al formulario de registro pyme
-                            estadoFormulario(true);
-                            RegistroUsuario.id = uuid();
-                            crearUsuario(RegistroUsuario);
+                            if(username.trim() ==='' ){
+                                estadoMensaje('ingrese Ingrese Username');
+                                estadoClaseMensaje('error');
+                                e.target[5].focus();
+                                return;
+                            }else{
+                                if(password.trim() ==='' ){
+                                    estadoMensaje('ingrese Ingrese Password');
+                                    estadoClaseMensaje('error');
+                                    e.target[6].focus();
+                                    return;
+                                }else{
+                                    
+                                    //estado para pasar al formulario de registro pyme
+                                    estadoFormulario(true);
+                                    RegistroUsuario.id = uuid();
+                                    crearUsuario(RegistroUsuario);
+                                }
+                            }
+                        
                         }        
                     }
                 }
@@ -131,8 +148,8 @@ const RegistroUsuario = (props) => {
         <Fragment>
             <Container fluid><br/>
                 <Row>
-                    <Col xs={12} sm={3} md={3}></Col>
-                    <Col xs={12} sm={6} md={6} >
+                    <Col xs={12}  lg={2}></Col>
+                    <Col xs={12}  lg={8} >
                     {Siguiente? < RegistroContacto/> :                   
                     <Card style={{ width: '100%', padding:'1em' }}>                   
                         <Form onSubmit={sutmitRegistroUsuario}>
@@ -141,7 +158,7 @@ const RegistroUsuario = (props) => {
                                 titulo='Reguistro Datos Personales Usuario'
                             /><br/>
                             <Form.Row>
-                                <Col >
+                                <Col xs={12} sm={8} lg={6} >
                                     <Form.Label>Primer Nombre</Form.Label>
                                     <Form.Control 
                                     size="sm"
@@ -152,7 +169,7 @@ const RegistroUsuario = (props) => {
                                     value={nombre}
                                     /> 
                                 </Col>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                     <Form.Label>Segundo Nombre</Form.Label>
                                     <Form.Control 
                                     size="sm" 
@@ -166,7 +183,7 @@ const RegistroUsuario = (props) => {
                             </Form.Row>
 
                             <Form.Row>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                 <Form.Label>Apellido Materno </Form.Label>
                                     <Form.Control 
                                     size="sm" 
@@ -177,7 +194,7 @@ const RegistroUsuario = (props) => {
                                     value={apellidoMaterno}
                                     /> 
                                 </Col>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                 <Form.Label>Apellido Paterno</Form.Label>
                                     <Form.Control 
                                     size="sm" 
@@ -190,7 +207,7 @@ const RegistroUsuario = (props) => {
                                 </Col>
                             </Form.Row>
                             <Form.Row>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                     <Form.Label>RuT </Form.Label>
                                     <Form.Control 
                                     size="sm" 
@@ -202,16 +219,40 @@ const RegistroUsuario = (props) => {
                                     /> 
                                 </Col>
                             </Form.Row>
+                            <Form.Row>
+                                <Col xs={12} sm={8} lg={6}>
+                                    <Form.Label>Username</Form.Label>
+                                    <Form.Control 
+                                    size="sm"
+                                    type="text" 
+                                    placeholder=""
+                                    name="username"
+                                    onChange={actualizarState}
+                                    value={username}
+                                    /> 
+                                </Col>
+                                <Col xs={12} sm={8} lg={6}>
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control 
+                                    size="sm" 
+                                    type="text" 
+                                    placeholder=""
+                                    name="password"
+                                    onChange={actualizarState}
+                                    value={password}
+                                    /> 
+                                </Col>
+                            </Form.Row>
                             <br/>
                             <Form.Row>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                     <Button
                                         type="submit"
                                         className="btn btn-block ">
                                         Ingresar
                                     </Button>
                                 </Col>
-                                <Col>
+                                <Col xs={12} sm={8} lg={6}>
                                     <Button
                                         className="btn btn-block bg-warning "
                                         onClick={Restablecer}
@@ -228,7 +269,7 @@ const RegistroUsuario = (props) => {
                         </Card> 
                     }               
                     </Col>
-                    <Col xs={12} sm={3} md={3}></Col>
+                    <Col xs={12} lg={2}></Col>
                 </Row>
             </Container>
         </Fragment>             

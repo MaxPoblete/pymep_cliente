@@ -1,7 +1,7 @@
 import React,{Fragment, useState,useEffect} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import '../../css/Global.css';
-import RegistroPyme from './RegistroPyme';
+import RegistroPyme from '../pyme/RegistroPyme';
 import { Button,Form,Col,Row,Container, Card} from 'react-bootstrap';
 import uuid from 'react-uuid';
 import Titulo from '../layout/Titulo';
