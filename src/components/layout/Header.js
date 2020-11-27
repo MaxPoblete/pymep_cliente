@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link,Redirect } from 'react-router-dom';
 import { Button,Form,Col,Row,Container, Card,Nav,Navbar,NavDropdown,FormControl} from 'react-bootstrap';
 
 
 
 const Herder = (props) => {
 
+    const[cerrarSession, setCerrerSesion]= useState(true);
+
+    const  cerrarSessionSistema = () =>{
+        sessionStorage.clear();
+        setCerrerSesion(false);
+    }
+
+
 
     return ( 
         <>
-        <Col xs={12} sm={12} md={12}>
+    {cerrarSession?
+    <>
+    <Col xs={12} sm={12} md={12}>
          <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Pymep</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,11 +38,19 @@ const Herder = (props) => {
                     <Form inline>
                     <FormControl type="text" placeholder="" className="mr-sm-2" />
                     <Button style={{ margin: '10px' }} variant="outline-success">Buscar Producto</Button>
-                    <Button variant="outline-danger">Cerrar Session</Button>
+                    <Button
+                    onClick={ () => cerrarSessionSistema(true)  }
+                    variant="outline-danger">Cerrar Session</Button>
                     </Form>
                 </Navbar.Collapse>
                 </Navbar>
         </Col> <br/>
+    </>
+
+    :    
+    <Redirect to='/'  />
+    }
+        
         </>
     );
 }

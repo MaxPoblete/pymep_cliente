@@ -207,7 +207,7 @@ const RegistroUsuario = (props) => {
                                 </Col>
                             </Form.Row>
                             <Form.Row>
-                                <Col xs={12} sm={8} lg={6}>
+                                <Col xs={12} sm={8} lg={4}>
                                     <Form.Label>RuT </Form.Label>
                                     <Form.Control 
                                     size="sm" 
@@ -218,10 +218,23 @@ const RegistroUsuario = (props) => {
                                     value={run} 
                                     /> 
                                 </Col>
+                                <Col xs={12} sm={8} lg={8}>
+                                    <Form.Label>Correo </Form.Label>
+                                    <Form.Control 
+                                    size="sm" 
+                                    type="text" 
+                                    placeholder=""
+                                    name="run"
+                                    onChange={actualizarState}
+                                    value={run} 
+                                    /> 
+                                </Col>
                             </Form.Row>
+                            <hr/>
+                            <h6> Increse Credenciales </h6>
                             <Form.Row>
                                 <Col xs={12} sm={8} lg={6}>
-                                    <Form.Label>Username</Form.Label>
+                                    <Form.Label> Creé Password</Form.Label>
                                     <Form.Control 
                                     size="sm"
                                     type="text" 
@@ -232,7 +245,7 @@ const RegistroUsuario = (props) => {
                                     /> 
                                 </Col>
                                 <Col xs={12} sm={8} lg={6}>
-                                    <Form.Label>Password</Form.Label>
+                                    <Form.Label> Valide Password</Form.Label>
                                     <Form.Control 
                                     size="sm" 
                                     type="text" 
@@ -246,22 +259,28 @@ const RegistroUsuario = (props) => {
                             <br/>
                             <Form.Row>
                                 <Col xs={12} sm={8} lg={6}>
-                                    <Button
-                                        type="submit"
-                                        className="btn btn-block ">
-                                        Ingresar
-                                    </Button>
+
                                 </Col>
                                 <Col xs={12} sm={8} lg={6}>
-                                    <Button
-                                        className="btn btn-block bg-warning "
-                                        onClick={Restablecer}
-                                        >
-                                        Restablecer
-                                    </Button>
+                                    <Row>
+                                        <Col>
+                                            <Button
+                                                type="submit"
+                                                className="btn btn-block ">
+                                                Registrar
+                                            </Button>
+                                        </Col>
+                                        <Col>
+                                            <Button
+                                                className="btn btn-block bg-warning "
+                                                onClick={Restablecer}
+                                                >
+                                                Restablecer
+                                            </Button>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Form.Row>
-
                         </Form>
                         <div>
                             <h5 className={claseError}>{mensajeError}</h5>

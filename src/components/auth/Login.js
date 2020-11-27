@@ -31,11 +31,10 @@ const Login = (props) => {
          const [mensajeError, estadoMensaje] = useState('');
 
         //estado para cambiar color mensaje
-        const [claseError, estadoClaseMensaje] = useState('');
+        const [claseError, estadoClaseMensaje] = useState();
 
         //obtener valores actuales de state con distrotion
         const {username,password} = Login;
-
 
 
         //validar Credenciales
@@ -69,11 +68,11 @@ const Login = (props) => {
                     if(validarCredenciales(username , password)){
                         estadoMensaje('Enviando....');
                         estadoClaseMensaje('enviado');
+                        sessionStorage.setItem('sesion', username);
                         irInicio(true);
                     }else{
                         estadoMensaje('Credenciales Incorrectas');
                         estadoClaseMensaje('error'); 
-
                     }
                     
                 }
